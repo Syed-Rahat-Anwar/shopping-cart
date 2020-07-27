@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Shopping Cart</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+   <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+   <section>
+      <div class="container">
+         <div class="cart">
+            <div class="col-md-12 col-lg-10 mx-auto">
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-md-7 center-item">
+                        <img src="images/product-1.png" alt="">
+                        <h5>iPhone 11 128GB Black</h5>
+                     </div>
+
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button id="btn-minus" class="btn btn-default"><i class="fa fa-minus" aria-hidden="true"></i></button>
+                           <input id="value-count" type="text" class="form-control text-center" value="1">
+                           <button id="btn-plus" class="btn btn-default"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                        </div>
+                        <h5>$ <span id="mobile-price">1219</span></h5>
+                        <img src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-md-7 center-item mx-auto">
+                        <img src="images/product-2.png" alt="">
+                        <h5>iPhone 11 Silicone Case - Black</h5>
+                     </div>
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button  id="case-btn-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="case-count" type="text" class="form-control text-center" value="1">
+                           <button id="case-btn-plus" class="btn btn-default"><i class="fa fa-plus" aria-hidden="true"></i></button>
+
+                        </div>
+                        <h5>$ <span id="total-case">59</span></h5>
+                        <img src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+
+                     <div class="col-md-8">
+                        <h5>Subtotal: </h5>
+                        <h5>Tax:</h5>
+                        <h5>Total:</h5>
+                     </div>
+
+                     <div class="col-md-4 status">
+                        <h5>$ <span id="total-product">1,278</span></h5>
+                        <h5>$0</h5>
+                        <h5>$1,278</h5>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-12 pt-4 pb-4">
+                  <button type="button" class="btn btn-success check-out">Check Out</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+
+   <script>
+      const buttonPlus = document.getElementById("btn-plus");
+
+      buttonPlus.addEventListener("click", function(){
+         const valueCount = document.getElementById("value-count").value;
+         const newValue= parseInt(valueCount);
+         const newValueCount = newValue+ 1;
+
+         document.getElementById("value-count").value= newValueCount;
+
+
+         const mobilePrice = newValueCount * 1219;
+
+         document.getElementById('mobile-price').innerHTML=mobilePrice;
+         
+        
+
+
+
+
+})
+
+const buttonMinus = document.getElementById("btn-minus");
+
+      buttonMinus.addEventListener("click", function(){
+         const valueCount = document.getElementById("value-count").value;
+
+         const newValue= parseInt(valueCount);
+
+         if(newValue >=1){
+
+            const newValueCount = newValue- 1;
+            document.getElementById("value-count").value= newValueCount;
+
+            const mobilePrice = newValueCount * 1219;
+
+       document.getElementById('mobile-price').innerHTML=mobilePrice;
+
+
+         }
+         
+           
+
+})
+
+
+   function ClickButton(){
+
+
+
+
+
+   }
+
+
+//case 
+
+ const buttonCasePlus = document.getElementById("case-btn-plus");
+ buttonCasePlus.addEventListener("click", function(){
+
+  const newCaseValue= document.getElementById("case-count").value;
+  const newIntValue= parseInt(newCaseValue);
+   
+  const newSetValue= newIntValue +1;
+  document.getElementById("case-count").value= newSetValue;
+
+  const totalCase= newSetValue * 59;
+
+  document.getElementById("total-case").innerHTML=totalCase;
+
+
+
+})
+
+const buttonCaseMinus = document.getElementById("case-btn-minus");
+buttonCaseMinus.addEventListener("click", function(){
+
+const newCaseValue= document.getElementById("case-count").value;
+const newIntValue= parseInt(newCaseValue);
+
+if(newIntValue >0){
+
+   const newSetValue= newIntValue -1;
+document.getElementById("case-count").value= newSetValue;
+
+const totalCase= newSetValue * 59;
+
+document.getElementById("total-case").innerHTML=totalCase;
+
+
+
+}
+ 
+ 
+
+})
+
+
+
+
+
+/*function calculateTotal(){
+
+const totalIntegrateProduct = mobilePrice+ totalCase;
+
+const totalProductPrice= document.getElementById("total-product").innerHTML;
+const totalProductInt= parseInt(totalProductPrice);
+
+document.getElementById("total-product").innerHTML= totalIntegrateProduct;
+
+
+
+} */
+
+   </script>
+</body>
+
+</html>
